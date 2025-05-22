@@ -1,1 +1,0 @@
-// Card per Laptop (usata nella lista e altrove)
