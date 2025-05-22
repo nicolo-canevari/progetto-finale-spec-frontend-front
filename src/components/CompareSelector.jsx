@@ -1,0 +1,1 @@
+// Componente per selezionare laptop da comparare

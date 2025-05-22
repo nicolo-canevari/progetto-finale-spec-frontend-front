@@ -1,0 +1,1 @@
+// Per gestire i preferiti (aggiungi/rimuovi, persisti in localStorage)

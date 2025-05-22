@@ -1,0 +1,1 @@
+// Pagina (o sidebar/modal) per mostrare i preferiti

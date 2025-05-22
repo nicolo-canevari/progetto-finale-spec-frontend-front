@@ -1,0 +1,1 @@
+// Icona per aggiungere/rimuovere preferiti

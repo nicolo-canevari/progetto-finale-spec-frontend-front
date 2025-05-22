@@ -1,0 +1,1 @@
+// Per gestire i Laptop da confrontare (max 2)  

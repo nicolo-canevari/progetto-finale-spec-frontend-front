@@ -1,0 +1,1 @@
+// Pagina per confrontare 2 laptop affiancati
