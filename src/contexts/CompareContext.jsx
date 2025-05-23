@@ -29,6 +29,7 @@ export function CompareProvider({ children }) {
         let laptopId = typeof input === 'object' ? input.id : input;
 
         try {
+
             // Richiama l'API per ottenere il laptop completo dai dati backend
             const response = await fetchLaptopById(laptopId);
             const laptop = response.laptop;

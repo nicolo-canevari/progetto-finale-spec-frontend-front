@@ -1,4 +1,8 @@
-// ICONA PER AGGIUNGERE/RIMUOVERE PREFERITI
+/**
+ * Questo componente rappresenta un'icona utilizzata per indicare
+ * se un laptop è stato aggiunto ai preferiti o meno.
+*/
+
 
 import React, { useContext } from 'react';
 // Importa il contesto che gestisce lo stato dei preferiti

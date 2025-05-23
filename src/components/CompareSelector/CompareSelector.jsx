@@ -1,6 +1,6 @@
 /**
-* Questo componente visualizza un menu a tendina (select dropdown) che permette 
- * all'utente di scegliere un laptop da aggiungere alla lista di confronto.
+ * Questo componente permette all'utente di selezionare uno o più laptop
+ * da aggiungere o rimuovere dalla lista di confronto.
 */
 
 import React from 'react';

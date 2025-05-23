@@ -1,7 +1,7 @@
 /**
  * Questo componente rappresenta un bottone che permette all'utente
  * di aggiungere o rimuovere un laptop dalla lista di confronto.
- */
+*/
 
 import React from 'react';
 import { useCompare } from '../../contexts/CompareContext';
