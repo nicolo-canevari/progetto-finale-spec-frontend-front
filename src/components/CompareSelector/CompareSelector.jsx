@@ -18,7 +18,7 @@ export default function CompareSelector({ laptops, selected, onSelect }) {
             {/* Menu a tendina per selezionare un laptop */}
             <select
                 id="compare-select"               // ID usato dall'etichetta
-                className="compare-dropdown"      // Classe per lo stile
+                className="compare-dropdown"
                 value={selected || ''}            // Valore selezionato (vuoto se null)
                 onChange={(e) => onSelect(e.target.value)}  // Aggiorna stato con nuovo ID
                 aria-label="Seleziona laptop da confrontare"

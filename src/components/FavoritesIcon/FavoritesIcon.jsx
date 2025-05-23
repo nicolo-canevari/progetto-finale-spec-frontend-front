@@ -2,27 +2,27 @@
 
 import React, { useContext } from 'react';
 // Importa il contesto che gestisce lo stato dei preferiti
-import { FavoritesContext } from '../contexts/FavoritesContext';
+import { FavoritesContext } from '../../contexts/FavoritesContext';
 
-export default function FavoritesIcon({ laptopId }) {
+export default function FavoritesIcon({ laptop }) {
 
-    // OttienE lo stato e le funzioni dal contesto dei preferiti
-    const { favorites, toggleFavorite } = useContext(FavoritesContext);
+    // Ottiene lo stato e le funzioni dal context
+    const { isFavorite, toggleFavorite } = useContext(FavoritesContext);
 
-    // Verifica se il laptop è attualmente nei preferiti
-    const isFavorite = favorites.includes(laptopId);
+    // Controlla se il laptop è tra i preferiti
+    const favorite = isFavorite(laptop.id);
 
     return (
 
         <button
-            className="favorites-icon-button"            // Classe CSS (da fare in seguito)
-            onClick={() => toggleFavorite(laptopId)}     // Chiama toggle al click
-            aria-label={isFavorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
-            title={isFavorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
+            className="favorites-icon-button"
+            onClick={() => toggleFavorite(laptop)}     // Chiama toggle al click
+            aria-label={favorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
+            title={favorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
         >
             {/* Mostra il simbolo ❤️ se è tra i preferiti, 🤍 altrimenti */}
             <span className="favorites-icon">
-                {isFavorite ? '❤️' : '🤍'}
+                {favorite ? '❤️' : '🤍'}
             </span>
         </button>
 

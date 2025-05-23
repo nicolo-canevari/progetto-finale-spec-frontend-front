@@ -4,7 +4,7 @@ import React from 'react';
 // Import per navigazione interna tra pagine (React Router)
 import { Link } from 'react-router-dom';
 import FavoritesIcon from '../FavoritesIcon/FavoritesIcon';
-import CompareSelector from '../CompareSelector/CompareSelector';
+import CompareIcon from '../CompareIcon/CompareIcon';
 import './LaptopCard.css';
 
 
@@ -12,7 +12,8 @@ import './LaptopCard.css';
 export default function LaptopCard({ laptop }) {
 
     return (
-        // Container principale con classe per lo stile
+
+        // Container principale 
         <article className="laptop-card">
 
             {/* Titolo del laptop */}
@@ -25,10 +26,10 @@ export default function LaptopCard({ laptop }) {
             <div className="card-actions">
 
                 {/* Icona per aggiungere/rimuovere dai preferiti */}
-                <FavoritesIcon laptopId={laptop.id} />
+                <FavoritesIcon laptop={laptop} />
 
                 {/* Selettore per aggiungere/rimuovere dalla comparazione */}
-                <CompareSelector laptopId={laptop.id} />
+                <CompareIcon laptop={laptop} />
 
             </div>
 
@@ -36,7 +37,9 @@ export default function LaptopCard({ laptop }) {
             <Link to={`/detail/${laptop.id}`} className="detail-link">
                 Dettagli
             </Link>
+
         </article>
+
     );
 
 }

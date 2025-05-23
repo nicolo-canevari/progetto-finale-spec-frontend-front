@@ -13,6 +13,10 @@ import './index.css';
 // Importa il componente principale dell'applicazione
 import App from './App.jsx';
 
+// Importa i context provider per preferiti e confronto
+import { FavoritesProvider } from './contexts/FavoritesContext';
+import { CompareProvider } from './contexts/CompareContext';
+
 // Collega l'applicazione al nodo DOM con id "root"
 createRoot(document.getElementById('root')).render(
 
@@ -22,8 +26,16 @@ createRoot(document.getElementById('root')).render(
     {/* BrowserRouter abilita la navigazione tra pagine nella SPA */}
     <BrowserRouter>
 
-      {/* App è il componente principale che conterrà tutte le pagine */}
-      <App />
+      {/* Avvolge tutta l'app nei context provider per gestire preferiti e confronto globalmente */}
+      <FavoritesProvider>
+
+        <CompareProvider>
+
+          <App />
+
+        </CompareProvider>
+
+      </FavoritesProvider>
 
     </BrowserRouter>
 
