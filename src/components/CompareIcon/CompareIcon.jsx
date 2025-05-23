@@ -1,3 +1,8 @@
+/**
+ * Questo componente rappresenta un bottone che permette all'utente
+ * di aggiungere o rimuovere un laptop dalla lista di confronto.
+ */
+
 import React from 'react';
 import { useCompare } from '../../contexts/CompareContext';
 import './CompareIcon.css';
@@ -5,7 +10,7 @@ import './CompareIcon.css';
 // Componente per aggiungere/rimuovere un laptop dalla comparazione
 export default function CompareIcon({ laptop }) {
 
-    // Ottiene funzioni dal context
+    // Ottiene dal contesto le funzioni per modificare la lista confronto
     const { toggleCompare, isInCompare } = useCompare();
 
     // Controlla se il laptop è già nella lista confronto
@@ -15,7 +20,7 @@ export default function CompareIcon({ laptop }) {
 
         // Bottone che consente di aggiungere o rimuovere il laptop dal confronto
         <button
-            onClick={() => toggleCompare(laptop)}
+            onClick={() => toggleCompare(laptop)}  // Chiama la funzione toggle con il laptop corrente
             className={`compare-icon ${inCompare ? 'active' : ''}`}  // Applica classe diversa se attivo
             aria-label={inCompare ? "Rimuovi dal confronto" : "Aggiungi al confronto"}
         >

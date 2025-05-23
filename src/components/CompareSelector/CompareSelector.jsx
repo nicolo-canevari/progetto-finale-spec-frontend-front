@@ -1,4 +1,7 @@
-// COMPONENTE PER SELEZIONARE LAPTOP DA COMPARARE
+/**
+* Questo componente visualizza un menu a tendina (select dropdown) che permette 
+ * all'utente di scegliere un laptop da aggiungere alla lista di confronto.
+*/
 
 import React from 'react';
 import './CompareSelector.css';
@@ -20,18 +23,21 @@ export default function CompareSelector({ laptops, selected, onSelect }) {
                 id="compare-select"               // ID usato dall'etichetta
                 className="compare-dropdown"
                 value={selected || ''}            // Valore selezionato (vuoto se null)
-                onChange={(e) => onSelect(e.target.value)}  // Aggiorna stato con nuovo ID
+                onChange={(e) => onSelect(e.target.value)}  // Callback per aggiornare la selezione
                 aria-label="Seleziona laptop da confrontare"
             >
                 {/* Opzione vuota iniziale */}
                 <option value="">-- Seleziona un laptop --</option>
 
-                {/* Mappa tutti i laptop per le opzioni */}
+                {/* Genera una option per ogni laptop nell'array passato come props */}
                 {laptops.map((laptop) => (
-                    <option key={laptop.id} value={laptop.id}>
+
+                    <option key={laptop.id} value={String(laptop.id)}>
                         {laptop.title}
                     </option>
+
                 ))}
+
             </select>
 
         </div>

@@ -1,4 +1,11 @@
-// Per gestire i preferiti (aggiungi/rimuovi, persisti in localStorage)
+/**
+ * Questo modulo definisce un contesto React per gestire lo stato globale dei "laptop preferiti".
+ * Il context permette di:
+ * - Aggiungere e rimuovere laptop dai preferiti
+ * - Controllare se un laptop è tra i preferiti
+ * - Salvare la lista dei preferiti nel localStorage per mantenerla persistente tra le sessioni
+ */
+
 
 import React, { createContext, useState, useEffect } from 'react';
 
