@@ -38,7 +38,7 @@ export default function LaptopCard({ laptop }) {
             </div>
 
             {/* Link per andare alla pagina dettaglio del laptop selezionato */}
-            <Link to={`/detail/${laptop.id}`} className="detail-link">
+            <Link to={`/detail/${laptop.id}`} className="detail-link" aria-label={`Dettagli di ${laptop.title}`}>
                 Dettagli
             </Link>
 

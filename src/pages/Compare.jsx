@@ -8,6 +8,8 @@ import { useCompare } from '../contexts/CompareContext';
 import CompareSelector from '../components/CompareSelector/CompareSelector';
 // Icona per toggle confronto
 import CompareIcon from '../components/CompareIcon/CompareIcon';
+import FavoriteIcon from '../components/FavoritesIcon/FavoritesIcon';
+import Layout from '../components/Layout/Layout';
 // Import della funzione che recupera i dati di un laptop dal backend
 import { fetchLaptops } from '../services/laptopServices';
 
@@ -67,29 +69,48 @@ export default function Compare() {
     }
 
     // Se sta caricando mostra messaggio
-    if (loading) return <p>Caricamento laptop...</p>;
+    if (loading) {
+
+        return (
+            <Layout>
+                <p>Caricamento laptop...</p>
+            </Layout>
+        );
+
+    }
 
     // Se c'è un errore mostra messaggio
-    if (error) return <p>Errore: {error}</p>;
+    if (error) {
+
+        return (
+            <Layout>
+                <p>Errore: {error}</p>
+            </Layout>
+        );
+
+    }
 
     // Se ci sono meno di 2 laptop nella lista confronto, mostra messaggio e selettore
     if (compareList.length < 2) {
 
         return (
 
-            <div>
+            <Layout>
 
-                <p>Seleziona almeno 2 laptop da confrontare per vedere il confronto.</p>
-                <Link to="/">Torna alla Home</Link>
+                <div>
 
-                {/* Selector per scegliere i laptop da aggiungere al confronto */}
-                <CompareSelector
-                    laptops={allLaptops}
-                    selected={selectedLaptopId}
-                    onSelect={(id) => setSelectedLaptopId(id)}
-                />
+                    <p>Seleziona almeno 2 laptop da confrontare per vedere il confronto.</p>
 
-            </div>
+                    {/* Selector per scegliere i laptop da aggiungere al confronto */}
+                    <CompareSelector
+                        laptops={allLaptops}
+                        selected={selectedLaptopId}
+                        onSelect={(id) => setSelectedLaptopId(id)}
+                    />
+
+                </div>
+
+            </Layout>
 
         );
 
@@ -101,58 +122,62 @@ export default function Compare() {
     // Renderizza la pagina di confronto vera e propria
     return (
 
-        <section>
+        <Layout>
 
-            {/* Navigazione per tornare alla home */}
-            <nav><Link to="/">Home</Link></nav>
+            <section>
 
-            <h1>Confronto Laptop</h1>
+                <h1>Confronto Laptop</h1>
 
-            {/* Selector per aggiungere/rimuovere laptop dalla lista confronto */}
-            <CompareSelector
-                laptops={allLaptops}
-                selected={selectedLaptopId}
-                onSelect={handleSelect}
-            />
+                {/* Selector per aggiungere/rimuovere laptop dalla lista confronto */}
+                <CompareSelector
+                    laptops={allLaptops}
+                    selected={selectedLaptopId}
+                    onSelect={handleSelect}
+                />
 
-            {/* Griglia con i due laptop affiancati */}
-            <div className="compare-grid">
+                {/* Griglia con i due laptop affiancati */}
+                <div className="compare-grid">
 
-                {/* Mappa i due laptop per mostrare i dettagli */}
-                {[laptop1, laptop2].map((laptop) => (
+                    {/* Mappa i due laptop per mostrare i dettagli */}
+                    {[laptop1, laptop2].map((laptop) => (
 
-                    <article key={laptop.id}>
+                        <article key={laptop.id}>
 
-                        {/* Titolo del laptop */}
-                        <h2>{laptop.title}</h2>
+                            {/* Titolo del laptop */}
+                            <h2>{laptop.title}</h2>
 
-                        {/* Icona bottone per aggiungere/rimuovere dal confronto */}
-                        <CompareIcon laptop={laptop} />
+                            {/* Icona bottone per aggiungere/rimuovere dal confronto */}
+                            <CompareIcon laptop={laptop} />
 
-                        {/* Lista delle caratteristiche tecniche */}
-                        <ul>
+                            {/* Icona per aggiungere il prodotto ai preferiti */}
+                            <FavoriteIcon laptop={laptop} />
 
-                            <li><strong>Categoria:</strong> {laptop.category}</li>
-                            <li><strong>Brand:</strong> {laptop.brand}</li>
-                            <li><strong>CPU:</strong> {laptop.cpu}</li>
-                            <li><strong>RAM:</strong> {laptop.ram}</li>
-                            <li><strong>Storage:</strong> {laptop.storage}</li>
-                            <li><strong>Display:</strong> {laptop.display}</li>
-                            <li><strong>GPU:</strong> {laptop.gpu}</li>
-                            <li><strong>OS:</strong> {laptop.os}</li>
-                            <li><strong>Prezzo:</strong> {laptop.price}€</li>
-                            <li><strong>Peso:</strong> {laptop.weight}</li>
-                            <li><strong>Batteria:</strong> {laptop.batteryLife}</li>
+                            {/* Lista delle caratteristiche tecniche */}
+                            <ul>
 
-                        </ul>
+                                <li><strong>Categoria:</strong> {laptop.category}</li>
+                                <li><strong>Brand:</strong> {laptop.brand}</li>
+                                <li><strong>CPU:</strong> {laptop.cpu}</li>
+                                <li><strong>RAM:</strong> {laptop.ram}</li>
+                                <li><strong>Storage:</strong> {laptop.storage}</li>
+                                <li><strong>Display:</strong> {laptop.display}</li>
+                                <li><strong>GPU:</strong> {laptop.gpu}</li>
+                                <li><strong>OS:</strong> {laptop.os}</li>
+                                <li><strong>Prezzo:</strong> {laptop.price}€</li>
+                                <li><strong>Peso:</strong> {laptop.weight}</li>
+                                <li><strong>Batteria:</strong> {laptop.batteryLife}</li>
 
-                    </article>
+                            </ul>
 
-                ))}
+                        </article>
 
-            </div>
+                    ))}
 
-        </section>
+                </div>
+
+            </section>
+
+        </Layout>
 
     );
 

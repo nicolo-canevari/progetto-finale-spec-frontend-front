@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 // useParams serve per leggere i parametri della URL
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // Import della funzione che recupera i dati di un laptop dal backend
 import { fetchLaptopById } from '../services/laptopServices';
+import FavoriteIcon from '../components/FavoritesIcon/FavoritesIcon';
+import Layout from '../components/Layout/Layout';
 
 export default function Detail() {
 
@@ -54,15 +56,23 @@ export default function Detail() {
     }, [id]);  // L'effetto si riesegue se cambia l'id nella URL
 
     // Se stiamo caricando, mostra un messaggio di caricamento
-    if (loading) return <p>Caricamento in corso...</p>;
+    if (loading) return (
+
+        <Layout>
+            <p>Caricamento in corso...</p>
+        </Layout>
+
+    )
 
     // Se c'è un errore, mostra la sezione con il messaggio di errore
     if (error) return (
 
-        <div className="detail-error">
-            <h2>Errore</h2>
-            <p>{error}</p>
-        </div>
+        <Layout>
+            <div className="detail-error">
+                <h2>Errore</h2>
+                <p>{error}</p>
+            </div>
+        </Layout>
 
     );
 
@@ -75,34 +85,36 @@ export default function Detail() {
     // Renderizza la pagina con i dettagli del laptop
     return (
 
-        <section className="detail-container">
+        <Layout>
 
-            {/* Link per tornare alla Home */}
-            <nav>
-                <Link to="/">Home</Link>
-            </nav>
+            <section className="detail-container">
 
-            {/* Titolo principale con il nome del laptop */}
-            <h1>{laptop.title}</h1>
+                {/* Titolo principale con il nome del laptop */}
+                <h1>{laptop.title}</h1>
 
-            {/* Lista puntata con tutte le caratteristiche del laptop */}
-            <ul className="detail-list">
+                {/* icona per aggiungere il Laptop ai preferiti */}
+                <FavoriteIcon laptop={laptop} />
 
-                <li><strong>Categoria:</strong> {laptop.category}</li>
-                <li><strong>Brand:</strong> {laptop.brand}</li>
-                <li><strong>CPU:</strong> {laptop.cpu}</li>
-                <li><strong>RAM:</strong> {laptop.ram}</li>
-                <li><strong>Storage:</strong> {laptop.storage}</li>
-                <li><strong>Display:</strong> {laptop.display}</li>
-                <li><strong>GPU:</strong> {laptop.gpu}</li>
-                <li><strong>Sistema Operativo:</strong> {laptop.os}</li>
-                <li><strong>Prezzo:</strong> {laptop.price}€</li>
-                <li><strong>Peso:</strong> {laptop.weight}</li>
-                <li><strong>Durata Batteria:</strong> {laptop.batteryLife}</li>
+                {/* Lista puntata con tutte le caratteristiche del laptop */}
+                <ul className="detail-list">
 
-            </ul>
+                    <li><strong>Categoria:</strong> {laptop.category}</li>
+                    <li><strong>Brand:</strong> {laptop.brand}</li>
+                    <li><strong>CPU:</strong> {laptop.cpu}</li>
+                    <li><strong>RAM:</strong> {laptop.ram}</li>
+                    <li><strong>Storage:</strong> {laptop.storage}</li>
+                    <li><strong>Display:</strong> {laptop.display}</li>
+                    <li><strong>GPU:</strong> {laptop.gpu}</li>
+                    <li><strong>Sistema Operativo:</strong> {laptop.os}</li>
+                    <li><strong>Prezzo:</strong> {laptop.price}€</li>
+                    <li><strong>Peso:</strong> {laptop.weight}</li>
+                    <li><strong>Durata Batteria:</strong> {laptop.batteryLife}</li>
 
-        </section>
+                </ul>
+
+            </section>
+
+        </Layout>
 
     );
 

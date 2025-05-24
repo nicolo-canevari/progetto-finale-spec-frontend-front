@@ -13,7 +13,7 @@ export default function SortControls({ sortBy, sortOrder, setSortBy, setSortOrde
         <div className="sort-controls">
 
             {/* Etichetta e select per scegliere il campo su cui ordinare (titolo o categoria) */}
-            <label className="sort-label">
+            <label htmlFor="sort-by" className="sort-label">
 
                 Ordina per:&nbsp;
 
@@ -35,7 +35,7 @@ export default function SortControls({ sortBy, sortOrder, setSortBy, setSortOrde
                 aria-label="Inverti ordine"
             >
                 {/* Mostra l'etichetta del tipo di ordinamento corrente */}
-                {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
+                {sortOrder === 'asc' ? '⬆️ A-Z' : '⬇️ Z-A'}
             </button>
 
         </div>

@@ -1,60 +1,46 @@
 // PAGINA PER MOSTRARE I PREFERITI
 
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 // Importa il contesto per accedere ai preferiti
 import { FavoritesContext } from '../contexts/FavoritesContext';
 import LaptopCard from '../components/LaptopCard/LaptopCard';
+import Layout from '../components/Layout/Layout';
 
 export default function Favorites() {
 
     // Prende la lista dei laptop preferiti dal contesto
     const { favorites } = useContext(FavoritesContext);
 
-    // Se non ci sono laptop preferiti, mostra un messaggio informativo
-    if (favorites.length === 0) {
-
-        return (
-
-            <section>
-
-                <nav>
-                    <Link to="/">Home</Link>
-                </nav>
-
-                <p>Non ci sono laptop nei preferiti.</p>
-
-            </section>
-
-        );
-
-    }
-
     // Renderizza la lista dei laptop preferiti
     return (
 
-        // Sezione principale della pagina dei preferiti
-        <section className="favorites-container">
+        <Layout>
 
-            {/* Link per tornare alla Home */}
-            <nav>
-                <Link to="/">Home</Link>
-            </nav>
+            {/* Sezione principale della pagina dei preferiti */}
+            <section className="favorites-container">
 
-            {/* Titolo della pagina */}
-            <h1 className="favorites-title">I tuoi laptop preferiti</h1>
+                {/* Titolo della pagina */}
+                <h1 className="favorites-title">I tuoi laptop preferiti</h1>
 
-            {/* Lista dei laptop preferiti */}
-            <div className="favorites-list">
+                {/* Se la lista è vuota, mostra un messaggio */}
+                {favorites.length === 0 ? (
+                    <p>Non ci sono laptop nei preferiti.</p>
+                ) : (
 
-                {/* Per ogni laptop nella lista dei preferiti, mostra una card */}
-                {favorites.map(laptop => (
-                    <LaptopCard key={laptop.id} laptop={laptop} />
-                ))}
+                    <div className="favorites-list">
 
-            </div>
+                        {/* Per ogni laptop nella lista dei preferiti, mostra una card */}
+                        {favorites.map(laptop => (
+                            <LaptopCard key={laptop.id} laptop={laptop} />
+                        ))}
 
-        </section>
+                    </div>
+
+                )}
+
+            </section>
+
+        </Layout >
 
     );
 
