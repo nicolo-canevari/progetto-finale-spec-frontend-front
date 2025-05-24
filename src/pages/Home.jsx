@@ -26,6 +26,9 @@ export default function Home() {
     // Stato per il termine di ricerca inserito dall'utente nella barra di ricerca
     const [searchTerm, setSearchTerm] = useState('');
 
+    // Stato per il valore "debounced" del termine di ricerca (ritardato)
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+
     // Stato per la categoria selezionata come filtro
     const [categoryFilter, setCategoryFilter] = useState('');
 
@@ -35,6 +38,22 @@ export default function Home() {
     // Stato per l'ordine dell'ordinamento ('asc' per crescente, 'desc' per decrescente)
     const [sortOrder, setSortOrder] = useState('asc');
 
+
+    // Debounce: aggiorna `debouncedSearchTerm` 300ms dopo l'ultima digitazione
+    useEffect(() => {
+
+        // Imposta un timer per ritardare l'aggiornamento
+        const timer = setTimeout(() => {
+
+            setDebouncedSearchTerm(searchTerm);
+
+        }, 300);
+
+        // Pulizia: se l'utente digita di nuovo prima dei 300ms, cancella il timer precedente
+        return () => clearTimeout(timer);
+
+    }, [searchTerm]);
+
     // useEffect: esegue il fetch ogni volta che cambiano i filtri, la ricerca o l'ordinamento
     useEffect(() => {
 
@@ -42,12 +61,18 @@ export default function Home() {
         setLoading(true);
         setError(null);
 
-        // Costruisce un oggetto con i parametri da passare alla fetch 
+        // Costruisce un oggetto con i parametri da passare alla fetch (search, category)
         const params = {};
+
         // Se l'utente ha inserito un termine di ricerca, aggiungilo ai parametri
-        if (searchTerm) params.search = searchTerm;
+        if (debouncedSearchTerm) params.search = debouncedSearchTerm;
         // Se è stato selezionato un filtro per la categoria, aggiungilo ai parametri
         if (categoryFilter) params.category = categoryFilter;
+
+        // // Se l'utente ha inserito un termine di ricerca, aggiungilo ai parametri
+        // if (searchTerm) params.search = searchTerm;
+        // // Se è stato selezionato un filtro per la categoria, aggiungilo ai parametri
+        // if (categoryFilter) params.category = categoryFilter;
 
         // Effettua la chiamata fetch passando i parametri (search, category)
         fetchLaptops(params)
@@ -75,7 +100,9 @@ export default function Home() {
             .finally(() => setLoading(false));
 
         // L'effetto si riattiva se cambia uno qualsiasi di questi stati: ricerca, filtro o ordinamento
-    }, [searchTerm, categoryFilter, sortBy, sortOrder]);
+        // }, [searchTerm, categoryFilter, sortBy, sortOrder]);
+
+    }, [debouncedSearchTerm, categoryFilter, sortBy, sortOrder]);
 
     // Render della pagina Home, dentro il Layout (che contiene Navbar e Footer)
     return (

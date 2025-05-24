@@ -18,10 +18,17 @@ export function FavoritesProvider({ children }) {
     // Stato per la lista dei laptop preferiti, inizializzato dal localStorage (se presente)
     const [favorites, setFavorites] = useState(() => {
 
-        // Recupera i preferiti dal localStorage
-        const saved = localStorage.getItem('favorites');
-        // Se esistono dati salvati li converte da stringa a array, altrimenti array vuoto
-        return saved ? JSON.parse(saved) : [];
+        try {
+
+            // Recupera i preferiti dal localStorage
+            const saved = localStorage.getItem('favorites');
+            // Se esistono dati salvati li converte da stringa a array, altrimenti array vuoto
+            return saved ? JSON.parse(saved) : [];
+
+        } catch (e) {
+            console.error("Errore nel parsing dei preferiti dal localStorage", e);
+            return [];
+        }
 
     });
 

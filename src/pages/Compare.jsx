@@ -1,7 +1,6 @@
 // PAGINA PER CONFRONTARE I PRODOTTI
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 // Contesto per confronto laptop
 import { useCompare } from '../contexts/CompareContext';
 // Dropdown per selezionare laptop
@@ -117,7 +116,7 @@ export default function Compare() {
     }
 
     // Se ci sono almeno 2 laptop da confrontare, li assegno a due variabili
-    const [laptop1, laptop2] = compareList;
+    // const [laptop1, laptop2] = compareList;
 
     // Renderizza la pagina di confronto vera e propria
     return (
@@ -139,7 +138,9 @@ export default function Compare() {
                 <div className="compare-grid">
 
                     {/* Mappa i due laptop per mostrare i dettagli */}
-                    {[laptop1, laptop2].map((laptop) => (
+                    {/* {[laptop1, laptop2].map((laptop) => ( */}
+
+                    {compareList.map((laptop) => (
 
                         <article key={laptop.id}>
 
