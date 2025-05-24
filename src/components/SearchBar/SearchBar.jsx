@@ -1,4 +1,9 @@
-// BARRA DI RICERCA
+/**
+ * Questo componente rappresenta una barra di input testuale
+ * che permette all'utente di inserire una stringa per effettuare
+ * una ricerca filtrata.
+*/
+
 
 import React from 'react';
 import './SearchBar.css';

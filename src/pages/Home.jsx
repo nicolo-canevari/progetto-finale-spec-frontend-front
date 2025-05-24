@@ -1,10 +1,11 @@
-// Lista laptop con ricerca, filtro e ordinamento
+// HOMEPAGE
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchLaptops } from '../services/laptopServices';
-import SearchBar from '../components/SearchBar/SearchBar';
-import FilterCategory from '../components/FilterCategory/FilterCategory';
-import LaptopCard from '../components/LaptopCard/LaptopCard';
+import FilterBar from '../components/FilterBar/FilterBar';
+import SortControls from '../components/SortControls/SortControls';
+import LaptopList from '../components/LaptopList/LaptopList';
 
 export default function Home() {
     // Stato per la lista dei laptop recuperati dal backend
@@ -26,107 +27,84 @@ export default function Home() {
     // Effetto che viene eseguito ogni volta che cambiano i valori di ricerca, filtro o ordinamento
     useEffect(() => {
 
-        // Imposta lo stato di caricamento a true ogni volta che parte una nuova fetch
+        // Imposta lo stato loading a true per mostrare il caricamento
         setLoading(true);
-        // Resetta eventuali errori precedenti
+        // Resetta l'errore precedente (se c'è)
         setError(null);
 
-        // Prepara i parametri per la query string dell'API
+        // Prepara i parametri da inviare alla chiamata fetch, solo se sono valorizzati
         const params = {};
-        if (searchTerm) params.search = searchTerm;  // se c'è testo di ricerca, aggiungi il parametro 'search'
-        if (categoryFilter) params.category = categoryFilter;  // se c'è filtro categoria, aggiungi 'category'
+        if (searchTerm) params.search = searchTerm;
+        if (categoryFilter) params.category = categoryFilter;
 
-        // Effettua la chiamata fetch al backend con i parametri
+        // Chiama la funzione fetchLaptops con i parametri per ottenere i dati
         fetchLaptops(params)
+
             .then(data => {
 
-                // Ordina i risultati lato client in base al campo scelto (title/category) e all'ordine (asc/desc)
+                // Ordina i dati lato client in base al campo e all'ordine scelti
                 const sorted = [...data].sort((a, b) => {
+
+                    // Converte i valori a lowercase per confronto case-insensitive
                     const valA = a[sortBy].toLowerCase();
                     const valB = b[sortBy].toLowerCase();
+
                     if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
                     if (valA > valB) return sortOrder === 'asc' ? 1 : -1;
                     return 0;
+
                 });
-                // Aggiorna lo stato con la lista ordinata
+
+                // Aggiorna lo stato con la lista ordinata di laptop
                 setLaptops(sorted);
+
             })
-            // Se qualcosa va storto durante il fetch, aggiorna lo stato errore con il messaggio
+
+            // Se la fetch genera un errore, lo salvo nello stato error
             .catch(err => setError(err.message))
-            // Al termine della fetch (sia successo che errore), setta loading a false
+            // Al termine della fetch, anche in caso di errore, disabilito il caricamento
             .finally(() => setLoading(false));
+    }, [searchTerm, categoryFilter, sortBy, sortOrder]); // Dipendenze che riattivano l'effetto
 
-    }, [searchTerm, categoryFilter, sortBy, sortOrder]); // Rilancia useEffect quando cambiano questi stati
-
-    // Se la fetch è ancora in corso, mostra un messaggio di caricamento
+    // Se la fetch è in corso, mostra un messaggio di caricamento all'utente
     if (loading) return <p className="loading-message">Caricamento in corso...</p>;
 
-    // Se si è verificato un errore, mostrane il messaggio
+    // Se c'è un errore nella fetch, mostra il messaggio di errore
     if (error) return <p className="error-message">Errore: {error}</p>;
 
-    // Renderizza la pagina principale con lista, filtri e ordinamenti
+    // Render della pagina principale: contiene navigazione, filtri, ordinamento e lista laptop
     return (
 
         <main className="home-container">
 
+            {/* Navigazione per Compare e Favorites */}
+            <nav>
+                <Link to="/compare">Compare</Link> |{' '}
+                <Link to="/favorites">Favorites</Link>
+            </nav>
+
             {/* Titolo pagina */}
             <h1 className="page-title">Lista Laptop</h1>
 
-            {/* Wrapper per barra di ricerca */}
-            <div className="search-bar-wrapper">
-                {/* Componente di input per la ricerca testuale */}
-                <SearchBar value={searchTerm} onChange={setSearchTerm} />
-            </div>
+            {/* Barra di ricerca + filtro categoria */}
+            <FilterBar
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                categoryFilter={categoryFilter}
+                setCategoryFilter={setCategoryFilter}
+            />
 
-            {/* Wrapper per filtro categoria */}
-            <div className="filter-category-wrapper">
-                {/* Componente per selezionare la categoria da filtrare */}
-                <FilterCategory value={categoryFilter} onChange={setCategoryFilter} />
-            </div>
+            {/* Controlli per ordinamento */}
+            <SortControls
+                sortBy={sortBy}
+                sortOrder={sortOrder}
+                setSortBy={setSortBy}
+                setSortOrder={setSortOrder}
+            />
 
-            {/* Controlli per l'ordinamento */}
-            <div className="sort-controls">
-
-                <label className="sort-label">
-                    Ordina per:&nbsp;
-                    {/* Select per scegliere la proprietà su cui ordinare */}
-                    <select
-                        className="sort-select"
-                        value={sortBy}
-                        onChange={e => setSortBy(e.target.value)}
-                    >
-                        <option value="title">Titolo</option>
-                        <option value="category">Categoria</option>
-                    </select>
-                </label>
-
-                {/* Bottone per invertire l'ordine (ascendente/descendente) */}
-                <button
-                    className="sort-order-button"
-                    onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                    aria-label="Inverti ordine di ordinamento"
-                >
-                    {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
-                </button>
-
-            </div>
-
-            {/* Sezione dove vengono mostrati i laptop o un messaggio se la lista è vuota */}
-            <section className="laptops-list">
-
-                {laptops.length === 0 ? (
-                    // Messaggio se non ci sono laptop corrispondenti a filtri/ricerca
-                    <p className="no-results-message">Nessun laptop trovato.</p>
-                ) : (
-                    // Mappa ogni laptop in una card visuale
-                    laptops.map(laptop => (
-                        <LaptopCard key={laptop.id} laptop={laptop} />
-                    ))
-                )}
-
-            </section>
+            {/* Lista laptop filtrata, ordinata e mappata */}
+            <LaptopList laptops={laptops} />
 
         </main>
-
     );
 }

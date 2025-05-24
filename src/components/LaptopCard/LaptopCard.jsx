@@ -1,4 +1,8 @@
-// CARD LAPTOP (usata nella lista e altrove)
+/**
+ * Questo componente rappresenta una singola scheda di un laptop,
+ * mostrando le principali informazioni come titolo, marca, categoria,
+ * e altre caratteristiche utili.
+*/
 
 import React from 'react';
 // Import per navigazione interna tra pagine (React Router)

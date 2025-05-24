@@ -1,10 +1,14 @@
-// FILTRO CATEGORIA
+/**
+ * Questo componente mostra un menu a tendina per selezionare la categoria
+ * con cui filtrare la lista dei laptop.
+*/
+
 
 import React from 'react';
 import './FilterCategory.css';
 
 // Array delle categorie disponibili per il filtro
-const categories = ['Tutti', 'Gaming', 'Ultrabook', 'Business', '2-in-1'];
+const categories = ['Tutti', 'Gaming', 'Windows', 'Apple', 'Linux'];
 
 // Componente filtro categoria come select dropdown
 export default function FilterCategory({ value, onChange }) {
