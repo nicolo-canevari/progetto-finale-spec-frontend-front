@@ -21,7 +21,7 @@ export default function LaptopList({ laptops }) {
 
         <section className="laptops-list">
 
-            {laptops.map(laptop => (
+            {laptops.slice(0, 10).map(laptop => (
                 // Usa l'id come key unica per ogni elemento della lista
                 <LaptopCard key={laptop.id} laptop={laptop} />
             ))}

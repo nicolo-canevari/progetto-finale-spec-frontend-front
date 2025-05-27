@@ -1,0 +1,56 @@
+/* RESET BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenitore principale della lista dei laptop */
+.laptops-list {
+    display: flex;
+    grid-auto-rows: auto;
+    gap: 2vw;
+    padding: 2vw;
+    justify-items: center;
+    align-items: stretch;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* Messaggio in caso di nessun risultato */
+.no-results-message {
+    font-size: 1.6vw;
+    color: #666;
+    text-align: center;
+    padding: 4vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+    .laptops-list {
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: 3vw;
+        padding: 3vw;
+    }
+
+    .no-results-message {
+        font-size: 2.4vw;
+        padding: 6vw;
+    }
+}
+
+/* ================= SMARTPHONE ================= */
+@media (max-width: 768px) {
+    .laptops-list {
+        grid-template-columns: 1fr;
+        gap: 4vw;
+        padding: 4vw 5vw;
+    }
+
+    .no-results-message {
+        font-size: 4.5vw;
+        padding: 8vw 6vw;
+    }
+}

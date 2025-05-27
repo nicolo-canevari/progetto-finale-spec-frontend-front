@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { useCompare } from '../../contexts/CompareContext';
+import { BiGitCompare } from 'react-icons/bi';
 import './CompareIcon.css';
 
 // Componente per aggiungere/rimuovere un laptop dalla comparazione
@@ -25,7 +26,7 @@ export default function CompareIcon({ laptop }) {
             aria-label={inCompare ? "Rimuovi dal confronto" : "Aggiungi al confronto"}
         >
             {/* Mostra un'icona diversa in base allo stato */}
-            {inCompare ? '🔁' : '➕'}
+            <BiGitCompare />
         </button>
 
     );

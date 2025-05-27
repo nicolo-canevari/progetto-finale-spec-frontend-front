@@ -1,0 +1,176 @@
+/* RESET BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenitore principale sezione confronto */
+.compare-section {
+    padding: 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+/* Titolo pagina */
+.compare-section h1 {
+    font-size: 3vw;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Wrapper per dropdown + altri controlli */
+.compare-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    margin-bottom: 2vw;
+}
+
+/* Griglia dei laptop */
+.compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+    gap: 3vw;
+    padding: 0 4vw;
+}
+
+/* Card singolo laptop */
+.compare-grid article {
+    background: #f0f0f3;
+    border-radius: 1.2vw;
+    padding: 2vw;
+    box-shadow:
+        0.5vw 0.5vw 1vw #d1d9e6,
+        -0.5vw -0.5vw 1vw #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+}
+
+/* Titolo card laptop */
+.compare-grid h2 {
+    font-size: 2vw;
+    color: #111;
+}
+
+/* Lista caratteristiche */
+.compare-grid ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vw 2vw;
+}
+
+.compare-grid li {
+    font-size: 1.2vw;
+    color: #555;
+}
+
+/* Wrapper icone (bottone confronto, preferiti) */
+.compare-grid article>div {
+    display: flex;
+    gap: 1.5vw;
+    justify-content: flex-end;
+}
+
+/* Messaggio placeholder per meno di 2 laptop */
+.compare-placeholder {
+    text-align: center;
+    font-size: 1.4vw;
+    color: #666;
+}
+
+.compare-placeholder a {
+    color: #0a84ff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.5vw;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .compare-section {
+        padding: 6vw;
+    }
+
+    .compare-section h1 {
+        font-size: 4vw;
+    }
+
+    .compare-controls {
+        gap: 4vw;
+    }
+
+    .compare-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+        gap: 4vw;
+        padding: 0 6vw;
+    }
+
+    .compare-grid article {
+        padding: 3vw;
+        border-radius: 2vw;
+    }
+
+    .compare-grid h2 {
+        font-size: 3vw;
+    }
+
+    .compare-grid li {
+        font-size: 2vw;
+    }
+
+    .compare-placeholder {
+        font-size: 2vw;
+    }
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+    .compare-section {
+        padding: 8vw 4vw;
+    }
+
+    .compare-section h1 {
+        font-size: 5vw;
+    }
+
+    .compare-controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 6vw;
+    }
+
+    .compare-grid {
+        grid-template-columns: 1fr;
+        gap: 6vw;
+        padding: 0 4vw;
+    }
+
+    .compare-grid article {
+        padding: 4vw;
+        border-radius: 3vw;
+    }
+
+    .compare-grid h2 {
+        font-size: 4vw;
+    }
+
+    .compare-grid ul {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-grid li {
+        font-size: 3vw;
+    }
+
+    .compare-placeholder {
+        font-size: 3vw;
+    }
+}

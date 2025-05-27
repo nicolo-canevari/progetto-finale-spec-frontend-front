@@ -1,0 +1,29 @@
+/* Footer.css */
+
+.footer {
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+    .footer {
+        font-size: 1.1rem;
+        padding: 2rem 1rem;
+    }
+}
+
+/* Responsive: smartphone */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 1.2rem;
+        padding: 2.5rem 1.2rem;
+    }
+}

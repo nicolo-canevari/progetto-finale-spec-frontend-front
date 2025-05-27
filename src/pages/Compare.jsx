@@ -11,6 +11,7 @@ import FavoriteIcon from '../components/FavoritesIcon/FavoritesIcon';
 import Layout from '../components/Layout/Layout';
 // Import della funzione che recupera i dati di un laptop dal backend
 import { fetchLaptops } from '../services/laptopServices';
+import './style/Compare.css'
 
 
 export default function Compare() {
@@ -96,18 +97,22 @@ export default function Compare() {
 
             <Layout>
 
-                <div>
+                <section className="compare-section">
 
-                    <p>Seleziona almeno 2 laptop da confrontare per vedere il confronto.</p>
+                    <p className="compare-placeholder">Seleziona almeno 2 laptop da confrontare per vedere il confronto.</p>
 
-                    {/* Selector per scegliere i laptop da aggiungere al confronto */}
-                    <CompareSelector
-                        laptops={allLaptops}
-                        selected={selectedLaptopId}
-                        onSelect={(id) => setSelectedLaptopId(id)}
-                    />
+                    <div className="compare-controls">
 
-                </div>
+                        {/* Selector per scegliere i laptop da aggiungere al confronto */}
+                        <CompareSelector
+                            laptops={allLaptops}
+                            selected={selectedLaptopId}
+                            onSelect={handleSelect}
+                        />
+
+                    </div>
+
+                </section>
 
             </Layout>
 

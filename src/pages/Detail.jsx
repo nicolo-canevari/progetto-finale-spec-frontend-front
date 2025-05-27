@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { fetchLaptopById } from '../services/laptopServices';
 import FavoriteIcon from '../components/FavoritesIcon/FavoritesIcon';
 import Layout from '../components/Layout/Layout';
+import './style/Detail.css'
 
 export default function Detail() {
 
@@ -80,7 +81,7 @@ export default function Detail() {
     if (!laptop) return null;
 
     // Debug
-    console.log("Laptop ricevuto:", laptop);
+    // console.log("Laptop ricevuto:", laptop);
 
     // Renderizza la pagina con i dettagli del laptop
     return (
@@ -92,8 +93,35 @@ export default function Detail() {
                 {/* Titolo principale con il nome del laptop */}
                 <h1>{laptop.title}</h1>
 
-                {/* icona per aggiungere il Laptop ai preferiti */}
-                <FavoriteIcon laptop={laptop} />
+                {/* Se l'immagine esiste, la mostriamo */}
+                <div className="detail-image-favorite-wrapper">
+                    {laptop.image && laptop.imageHover ? (
+                        <div className="detail-image-container">
+                            <img
+                                src={laptop.image}
+                                alt={`Immagine di ${laptop.title}`}
+                                className="detail-image normal-image"
+                            />
+                            <img
+                                src={laptop.imageHover}
+                                alt={`Immagine hover di ${laptop.title}`}
+                                className="detail-image hover-image"
+                            />
+                        </div>
+                    ) : (
+                        <div className="detail-image-container">
+                            <img
+                                src={laptop.image}
+                                alt={`Immagine di ${laptop.title}`}
+                                className="detail-image"
+                            />
+                        </div>
+                    )}
+
+                    <div className="favorites-icon">
+                        <FavoriteIcon laptop={laptop} />
+                    </div>
+                </div>
 
                 {/* Lista puntata con tutte le caratteristiche del laptop */}
                 <ul className="detail-list">

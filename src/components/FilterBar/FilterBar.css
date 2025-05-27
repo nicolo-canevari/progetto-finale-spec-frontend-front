@@ -1,0 +1,29 @@
+/* Container SearchBar e FilterCategory */
+.filter-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+
+.search-bar-wrapper,
+.filter-category-wrapper {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* === Tablet === */
+@media (max-width: 1024px) {
+    .filter-bar-container {
+        gap: 3vw;
+    }
+}
+
+/* === Smartphone === */
+@media (max-width: 768px) {
+    .filter-bar-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4vw;
+    }
+}

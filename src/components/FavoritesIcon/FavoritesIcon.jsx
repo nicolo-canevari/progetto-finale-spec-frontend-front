@@ -7,6 +7,8 @@
 import React, { useContext } from 'react';
 // Importa il contesto che gestisce lo stato dei preferiti
 import { FavoritesContext } from '../../contexts/FavoritesContext';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import './FavoritesIcon.css'
 
 export default function FavoritesIcon({ laptop }) {
 
@@ -26,8 +28,9 @@ export default function FavoritesIcon({ laptop }) {
         >
             {/* Mostra il simbolo ❤️ se è tra i preferiti, 🤍 altrimenti */}
             <span className="favorites-icon">
-                {favorite ? '❤️' : '🤍'}
+                {favorite ? <FaHeart /> : <FaRegHeart />}
             </span>
+
         </button>
 
     );

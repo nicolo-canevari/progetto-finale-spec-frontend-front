@@ -113,7 +113,7 @@ export default function Home() {
             <main className="home-container">
 
                 {/* Titolo principale della pagina */}
-                <h1 className="page-title">Lista Laptop</h1>
+                {/* <h1 className="page-title">Lista Laptop</h1> */}
 
                 {/* Barra con campo ricerca e filtro categoria */}
                 <FilterBar

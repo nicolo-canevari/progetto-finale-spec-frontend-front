@@ -1,0 +1,91 @@
+/* === Container generale === */
+.home-container {
+    max-width: 96vw;
+    margin: 3vw auto;
+    padding: 2vw;
+    background-color: #f5f7fa;
+    border-radius: 0.8vw;
+    box-shadow: 0 0.3vw 0.7vw rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+/* Container SearchBar e FilterCategory */
+.filter-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+/* === STATO DI CARICAMENTO O ERRORE === */
+.loading-message,
+.error-message {
+    font-size: 2vw;
+    color: #555;
+    text-align: center;
+    margin: 3vw 0;
+}
+
+
+.error-message {
+    color: #d9534f;
+}
+
+/* === GRIGLIA DI LAPTOP === */
+.laptops-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 colonne fisse */
+    gap: 2vw;
+    /* spazio tra le card */
+    justify-items: stretch;
+    align-items: stretch;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* === MEDIA QUERY TABLET === */
+@media (max-width: 1024px) {
+    .home-container {
+        max-width: 95vw;
+        padding: 3vw;
+    }
+
+    .filter-bar-container,
+    .sort-controls-container {
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    .loading-message,
+    .error-message {
+        font-size: 3vw;
+    }
+
+    .laptops-list {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 card per riga su tablet */
+        gap: 3vw;
+    }
+}
+
+/* === MEDIA QUERY SMARTPHONE === */
+@media (max-width: 768px) {
+    .home-container {
+        max-width: 98vw;
+        padding: 4vw;
+    }
+
+    .loading-message,
+    .error-message {
+        font-size: 4vw;
+    }
+
+    .laptops-list {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 card per riga su smartphone */
+        gap: 4vw;
+    }
+}

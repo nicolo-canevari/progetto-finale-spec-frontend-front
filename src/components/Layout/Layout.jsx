@@ -1,6 +1,6 @@
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import './Layout.css';
+
 
 // Componente Layout: avvolge tutte le pagine dell'app per fornire una struttura comune
 export default function Layout({ children }) {

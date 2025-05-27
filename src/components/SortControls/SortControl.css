@@ -1,0 +1,96 @@
+/* RESET BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenitore dei controlli di ordinamento */
+.sort-controls-container {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin: 1.5vw 0;
+}
+
+/* Etichetta del select */
+.sort-label {
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Select per scegliere il campo di ordinamento */
+.sort-select {
+    padding: 0.5vw 1vw;
+    font-size: 1.1vw;
+    border: none;
+    border-radius: 0.8vw;
+    background: #e0e0e0;
+    box-shadow:
+        0.2vw 0.2vw 0.5vw #bebebe,
+        -0.2vw -0.2vw 0.5vw #ffffff;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Bottone per invertire ordine */
+.sort-order-button {
+    background: #f0f0f3;
+    border: none;
+    border-radius: 50%;
+    padding: 0.7vw;
+    font-size: 1.4vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0.3vw 0.3vw 0.6vw #d1d9e6,
+        -0.3vw -0.3vw 0.6vw #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.sort-order-button:hover {
+    transform: scale(1.1);
+}
+
+/* Media query: tablet */
+@media (max-width: 1024px) {
+    .sort-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .sort-label {
+        font-size: 1rem;
+    }
+
+    .sort-select {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .sort-order-button {
+        font-size: 1.2rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Media query: smartphone */
+@media (max-width: 768px) {
+    .sort-label {
+        font-size: 0.95rem;
+    }
+
+    .sort-select {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.9rem;
+    }
+
+    .sort-order-button {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+    }
+}

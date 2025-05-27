@@ -8,31 +8,37 @@
 import SearchBar from '../SearchBar/SearchBar';
 import FilterCategory from '../FilterCategory/FilterCategory';
 
+
 // Componente che combina SearchBar e FilterCategory in un'unica barra di filtri
 export default function FilterBar({ searchTerm, setSearchTerm, categoryFilter, setCategoryFilter }) {
 
     return (
 
         <>
-            {/* Wrapper per la barra di ricerca */}
-            <div className="search-bar-wrapper">
 
-                {/* Componente input per cercare per titolo */}
-                <SearchBar
-                    value={searchTerm}              // valore attuale della ricerca
-                    onChange={setSearchTerm}        // funzione per aggiornare lo stato della ricerca
-                />
+            <div className="filter-bar-container">
 
-            </div>
+                {/* Wrapper per la barra di ricerca */}
+                <div className="search-bar-wrapper">
 
-            {/* Wrapper per il filtro categoria */}
-            <div className="filter-category-wrapper">
+                    {/* Componente input per cercare per titolo */}
+                    <SearchBar
+                        value={searchTerm}              // valore attuale della ricerca
+                        onChange={setSearchTerm}        // funzione per aggiornare lo stato della ricerca
+                    />
 
-                {/* Componente select per filtrare per categoria */}
-                <FilterCategory
-                    value={categoryFilter}           // categoria attualmente selezionata
-                    onChange={setCategoryFilter}     // funzione per aggiornare lo stato del filtro
-                />
+                </div>
+
+                {/* Wrapper per il filtro categoria */}
+                <div className="filter-category-wrapper">
+
+                    {/* Componente select per filtrare per categoria */}
+                    <FilterCategory
+                        value={categoryFilter}           // categoria attualmente selezionata
+                        onChange={setCategoryFilter}     // funzione per aggiornare lo stato del filtro
+                    />
+
+                </div>
 
             </div>
 

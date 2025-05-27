@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import { FavoritesContext } from '../contexts/FavoritesContext';
 import LaptopCard from '../components/LaptopCard/LaptopCard';
 import Layout from '../components/Layout/Layout';
+import './style/Favorite.css'
 
 export default function Favorites() {
 

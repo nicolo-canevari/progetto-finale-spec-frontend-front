@@ -4,13 +4,16 @@
  * e di invertire l'ordine (ascendente o discendente).
  */
 
+import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai';
+import './SortControl.css';
+
 
 export default function SortControls({ sortBy, sortOrder, setSortBy, setSortOrder }) {
 
     return (
 
         // Contenitore principale dei controlli di ordinamento
-        <div className="sort-controls">
+        <div className="sort-controls-container">
 
             {/* Etichetta e select per scegliere il campo su cui ordinare (titolo o categoria) */}
             <label htmlFor="sort-by" className="sort-label">
@@ -35,7 +38,10 @@ export default function SortControls({ sortBy, sortOrder, setSortBy, setSortOrde
                 aria-label="Inverti ordine"
             >
                 {/* Mostra l'etichetta del tipo di ordinamento corrente */}
-                {sortOrder === 'asc' ? '⬆️ A-Z' : '⬇️ Z-A'}
+                {sortOrder === 'asc'
+                    ? <AiOutlineSortAscending size="1.6vw" />
+                    : <AiOutlineSortDescending size="1.6vw" />
+                }
             </button>
 
         </div>

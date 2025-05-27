@@ -23,6 +23,17 @@ export default function LaptopCard({ laptop }) {
             {/* Titolo del laptop */}
             <h2 className="laptop-title">{laptop.title}</h2>
 
+            {/* Se l'immagine esiste, la mostriamo */}
+            {laptop.image && (
+                <div className="laptopcard-image-container">
+                    <img
+                        src={laptop.image}
+                        alt={`Immagine di ${laptop.title}`}
+                        className="detail-image"
+                    />
+                </div>
+            )}
+
             {/* Categoria del laptop */}
             <p className="laptop-category">{laptop.category}</p>
 

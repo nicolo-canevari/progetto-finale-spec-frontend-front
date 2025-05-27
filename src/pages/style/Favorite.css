@@ -1,0 +1,91 @@
+/* style/Favorite.css */
+
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenitore principale */
+.favorites-container {
+    max-width: 90vw;
+    margin: 3vw auto;
+    padding: 2vw;
+    background-color: #f9f9f9;
+    border-radius: 0.8vw;
+    box-shadow: 0 0.2vw 0.6vw rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titolo */
+.favorites-title {
+    font-size: 3vw;
+    margin-bottom: 2vw;
+    color: #222;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Messaggio se lista vuota */
+.favorites-container>p {
+    font-size: 2vw;
+    color: #555;
+    text-align: center;
+    margin-top: 4vw;
+}
+
+/* Lista dei preferiti */
+.favorites-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    justify-content: center;
+}
+
+/* --- Media Query Tablet --- */
+@media (max-width: 1024px) {
+    .favorites-container {
+        max-width: 95vw;
+        margin: 2vw auto;
+        padding: 3vw;
+    }
+
+    .favorites-title {
+        font-size: 4vw;
+        margin-bottom: 3vw;
+    }
+
+    .favorites-container>p {
+        font-size: 3vw;
+        margin-top: 6vw;
+    }
+
+    .favorites-list {
+        gap: 3vw;
+    }
+}
+
+/* --- Media Query Smartphone --- */
+@media (max-width: 768px) {
+    .favorites-container {
+        max-width: 98vw;
+        margin: 1.5vw auto;
+        padding: 4vw;
+    }
+
+    .favorites-title {
+        font-size: 5vw;
+        margin-bottom: 4vw;
+    }
+
+    .favorites-container>p {
+        font-size: 4vw;
+        margin-top: 8vw;
+    }
+
+    .favorites-list {
+        flex-direction: column;
+        gap: 4vw;
+    }
+}
