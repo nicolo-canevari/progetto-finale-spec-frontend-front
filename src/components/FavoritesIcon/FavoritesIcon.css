@@ -47,9 +47,9 @@
 /* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .favorites-icon-button {
-        width: 4vw;
-        height: 4vw;
-        font-size: 2vw;
+        width: 6vw;
+        height: 6vw;
+        font-size: 2.5vw;
         box-shadow: 0.5vw 0.5vw 1vw #d1d9e6,
             -0.5vw -0.5vw 1vw #ffffff;
     }
@@ -58,9 +58,9 @@
 /* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
     .favorites-icon-button {
-        width: 6vw;
-        height: 6vw;
-        font-size: 3.5vw;
+        width: 13vw;
+        height: 13vw;
+        font-size: 8vw;
         box-shadow: 0.6vw 0.6vw 1.2vw #d1d9e6,
             -0.6vw -0.6vw 1.2vw #ffffff;
     }

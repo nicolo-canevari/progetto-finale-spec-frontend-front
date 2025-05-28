@@ -5,7 +5,9 @@
     box-sizing: border-box;
 }
 
-/* Contenitore principale della lista dei laptop */
+/* ==============================
+   Contenitore principale della lista Laptop
+   ============================== */
 .laptops-list {
     display: flex;
     grid-auto-rows: auto;
@@ -30,7 +32,7 @@
 /* ================= TABLET ================= */
 @media (max-width: 1024px) {
     .laptops-list {
-        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 3vw;
         padding: 3vw;
     }

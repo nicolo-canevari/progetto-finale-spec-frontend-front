@@ -15,6 +15,18 @@ import './LaptopCard.css';
 // Componente che mostra la scheda di un singolo laptop
 export default function LaptopCard({ laptop }) {
 
+    // Costruisce i path delle immagini se definiti
+    const image = laptop.image || null;
+    const imageHover = laptop.imageHover || null;
+
+
+
+    // Debug in console per verificare i path delle immagini
+    console.log('laptop.image:', laptop.image);
+
+
+
+
     return (
 
         // Container principale 
@@ -23,19 +35,36 @@ export default function LaptopCard({ laptop }) {
             {/* Titolo del laptop */}
             <h2 className="laptop-title">{laptop.title}</h2>
 
-            {/* Se l'immagine esiste, la mostriamo */}
-            {laptop.image && (
-                <div className="laptopcard-image-container">
+            {/* Immagine normale + immagine hover, se entrambe presenti */}
+            <div className="laptopcard-image-container">
+                {image && imageHover ? (
+                    <>
+                        <img
+                            src={image}
+                            alt={`Immagine normale di ${laptop.title}`}
+                            className="laptopcard-image normal-image"
+                        />
+                        <img
+                            src={imageHover}
+                            alt={`Immagine hover di ${laptop.title}`}
+                            className="laptopcard-image hover-image"
+                        />
+                    </>
+                ) : image ? (
                     <img
-                        src={laptop.image}
+                        src={image}
                         alt={`Immagine di ${laptop.title}`}
-                        className="detail-image"
+                        className="laptopcard-image"
                     />
-                </div>
-            )}
+                ) : (
+                    <div className="no-image-placeholder" aria-label="Nessuna immagine disponibile">
+                        Nessuna immagine
+                    </div>
+                )}
+            </div>
 
             {/* Categoria del laptop */}
-            <p className="laptop-category">{laptop.category}</p>
+            <p className="laptop-category">Categoria: {laptop.category}</p>
 
             {/* Sezione con azioni rapide (preferiti, confronto) */}
             <div className="card-actions">

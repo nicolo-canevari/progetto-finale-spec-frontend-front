@@ -5,9 +5,12 @@
     box-sizing: border-box;
 }
 
-/* Contenitore principale della scheda laptop */
+
+/* ==============================
+   Contenitore principale della scheda laptop
+   ============================== */
 .laptop-card {
-    width: 16.5vw;
+    width: 21vw;
     background: #e0e0e0;
     border-radius: 1.5vw;
     padding: 1.5vw 2vw;
@@ -31,37 +34,97 @@
 
 /* Titolo laptop grande e leggibile */
 .laptop-title {
-    font-size: 2.2vw;
+    font-size: 2vw;
     font-weight: 600;
     color: #222;
-    margin-bottom: 0.5vw;
+    margin-bottom: 1vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     user-select: none;
 }
 
-/* Immagine del Laptop */
-.laptop-image {
+/* ==============================
+   Contenitore immagine con dimensioni stabili
+   ============================== */
+.laptopcard-image-container {
+    position: relative;
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 18vw;
     border-radius: 1vw;
+    overflow: hidden;
+    margin-bottom: 1.2vw;
+    background: #f0f0f0;
 }
 
-/* Categoria laptop, stile sottile e in grigio scuro */
+/* Immagini assolute, dimensioni e posizione fisse */
+.laptopcard-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease;
+    border-radius: 1vw;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Immagine normale visibile inizialmente */
+.laptopcard-image.normal-image {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Immagine hover nascosta inizialmente */
+.laptopcard-image.hover-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    border-radius: 1vw;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Al passaggio del mouse sul contenitore immagine, mostra l'hover */
+.laptopcard-image-container:hover .normal-image {
+    opacity: 0;
+}
+
+.laptopcard-image-container:hover .hover-image {
+    opacity: 1;
+}
+
+
+/* Categoria laptop */
 .laptop-category {
     font-size: 1.4vw;
     color: #555;
-    margin-bottom: 1.4vw;
+    margin-bottom: 2vw;
     font-style: italic;
     user-select: none;
 }
 
-/* Contenitore delle azioni (favoriti + compare) */
+/* ==============================
+   Contenitore delle azioni (favoriti + compare)
+   ============================== */
 .card-actions {
     display: flex;
     justify-content: flex-start;
     gap: 1.5vw;
     margin-bottom: 1.6vw;
+}
+
+/* Bottone icona per la comparazione */
+.compare-icon {
+    width: 5vw;
+    height: 5vw;
+    font-size: 3.5vw;
+}
+
+.sort-order-button {
+    padding: 1vw;
 }
 
 /* Link per la pagina dettaglio, stile bottone neutro */
@@ -92,6 +155,7 @@
     cursor: pointer;
 }
 
+
 /* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) and (min-width: 769px) {
     .laptop-card {
@@ -102,6 +166,17 @@
 
     .laptop-title {
         font-size: 4vw;
+    }
+
+    .laptopcard-image-container {
+        width: 100%;
+        height: 33vw;
+    }
+
+    .laptopcard-image.hover-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .laptop-category {
@@ -119,6 +194,19 @@
         padding: 2vw 4vw;
         border-radius: 2.5vw;
     }
+
+    .compare-icon {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    .sort-order-button {
+        padding: 1.6vw;
+    }
+
+    .sort-icon {
+        font-size: 1.8rem;
+    }
 }
 
 /* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
@@ -131,6 +219,17 @@
 
     .laptop-title {
         font-size: 6vw;
+    }
+
+    .laptopcard-image-container {
+        width: 100%;
+        height: 65vw;
+    }
+
+    .laptopcard-image.hover-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .laptop-category {
@@ -147,5 +246,19 @@
         font-size: 4.5vw;
         padding: 3vw 5vw;
         border-radius: 4vw;
+    }
+
+    .compare-icon {
+        width: 13vw;
+        height: 13vw;
+        font-size: 8vw;
+    }
+
+    .sort-order-button {
+        padding: 4vw;
+    }
+
+    .sort-icon {
+        font-size: 1.8rem;
     }
 }

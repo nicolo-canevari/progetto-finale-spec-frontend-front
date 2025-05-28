@@ -39,8 +39,8 @@ export default function SortControls({ sortBy, sortOrder, setSortBy, setSortOrde
             >
                 {/* Mostra l'etichetta del tipo di ordinamento corrente */}
                 {sortOrder === 'asc'
-                    ? <AiOutlineSortAscending size="1.6vw" />
-                    : <AiOutlineSortDescending size="1.6vw" />
+                    ? <AiOutlineSortAscending className="sort-icon" />
+                    : <AiOutlineSortDescending className="sort-icon" />
                 }
             </button>
 

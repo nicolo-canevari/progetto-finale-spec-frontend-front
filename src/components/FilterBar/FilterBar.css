@@ -12,14 +12,15 @@
     min-width: 250px;
 }
 
-/* === Tablet === */
+
+/* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .filter-bar-container {
         gap: 3vw;
     }
 }
 
-/* === Smartphone === */
+/* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
     .filter-bar-container {
         flex-direction: column;

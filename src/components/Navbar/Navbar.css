@@ -5,7 +5,9 @@
     box-sizing: border-box;
 }
 
-/* Navbar principale */
+/* =========================
+     NAVBAR PRINCIPALE
+   ========================= */
 .navbar {
     display: flex;
     justify-content: center;
@@ -34,13 +36,14 @@
     font-size: 3vw;
 }
 
-/* Hover effetto elegante */
+/* Hover effetto */
 .navbar a:hover {
     color: #0a84ff;
     transform: scale(1.05);
 }
 
-/* Media query: tablet */
+
+/* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .navbar {
         gap: 6vw;
@@ -57,20 +60,18 @@
     }
 }
 
-/* Media query: smartphone */
+/* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: center;
-        gap: 4vw;
-        padding: 4vw 0;
+        gap: 5vw;
+        padding: 5vw 0;
     }
 
     .navbar a {
-        font-size: 4.5vw;
+        font-size: 5vw;
     }
 
     .nav-icon {
-        font-size: 6vw;
+        font-size: 8vw;
     }
 }
