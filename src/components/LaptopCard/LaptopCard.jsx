@@ -28,8 +28,13 @@ export default function LaptopCard({ laptop }) {
         // Container principale 
         <article className="laptop-card">
 
-            {/* Titolo del laptop */}
-            <h2 className="laptop-title">{laptop.title}</h2>
+            {/* Contenitore del titolo del Laptop */}
+            <div className="laptop-header">
+
+                {/* Titolo del laptop */}
+                <h2 className="laptop-title">{laptop.title}</h2>
+
+            </div>
 
             {/* Immagine normale + immagine hover, se entrambe presenti */}
             <div className="laptopcard-image-container">

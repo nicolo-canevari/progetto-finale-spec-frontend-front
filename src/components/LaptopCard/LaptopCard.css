@@ -36,6 +36,13 @@
 /* =======================================
    TITOLO E CATEGORIA LAPTOP
 ======================================= */
+.laptop-header {
+    min-height: 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 .laptop-title {
     font-size: 2vw;
     font-weight: 600;
@@ -166,6 +173,10 @@
         border-radius: 3vw;
     }
 
+    .laptop-header {
+        min-height: 12vw;
+    }
+
     .laptop-title {
         font-size: 4vw;
     }
@@ -219,6 +230,13 @@
         border-radius: 5vw;
     }
 
+    .laptop-header {
+        min-height: 18vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
     .laptop-title {
         font-size: 6vw;
     }
@@ -237,6 +255,7 @@
     .laptop-category {
         font-size: 4vw;
         margin-bottom: 4vw;
+        margin-top: 2vw;
     }
 
     .card-actions {

@@ -17,7 +17,7 @@ import './style/Compare.css'
 export default function Compare() {
 
     // Estrae dal contesto la lista di laptop selezionati per il confronto e la funzione per aggiungere/rimuovere
-    const { compareList, toggleCompare } = useCompare();
+    const { compareList, toggleCompare, minPrice, maxPrice } = useCompare();
 
     // Debug
     console.log("compareList:", compareList);
@@ -198,7 +198,22 @@ export default function Compare() {
                                 <li><strong>Display:</strong> {laptop.display}</li>
                                 <li><strong>GPU:</strong> {laptop.gpu}</li>
                                 <li><strong>OS:</strong> {laptop.os}</li>
-                                <li><strong>Prezzo:</strong> {laptop.price}€</li>
+
+                                {/* Prezzo evidenziato in base al valore */}
+                                <li>
+                                    <strong>Prezzo:</strong> {' '}
+                                    <span
+                                        style={{
+                                            color:
+                                                laptop.price === maxPrice ? 'red' :
+                                                    laptop.price === minPrice ? 'green' :
+                                                        'inherit'
+                                        }}
+                                    >
+                                        {laptop.price}€
+                                    </span>
+                                </li>
+
                                 <li><strong>Peso:</strong> {laptop.weight}</li>
                                 <li><strong>Batteria:</strong> {laptop.batteryLife}</li>
 

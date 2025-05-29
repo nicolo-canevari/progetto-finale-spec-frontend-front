@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Compare from './pages/Compare';
 import Favorites from './pages/Favorites';
+import './index.css';
 
 function App() {
 
