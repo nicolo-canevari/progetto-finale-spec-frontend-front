@@ -1,6 +1,6 @@
 /**
  * Questo componente rappresenta un'icona utilizzata per indicare
- * se un laptop è stato aggiunto ai preferiti o meno.
+ * se un laptop è stato aggiunto ai preferiti o meno (Favorite.jsx).
 */
 
 

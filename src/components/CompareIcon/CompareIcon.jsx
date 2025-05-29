@@ -1,6 +1,6 @@
 /**
  * Questo componente rappresenta un bottone che permette all'utente
- * di aggiungere o rimuovere un laptop dalla lista di confronto.
+ * di aggiungere o rimuovere un laptop dalla pagina di confronto (Compare.jsx).
 */
 
 import React from 'react';

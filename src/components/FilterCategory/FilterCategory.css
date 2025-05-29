@@ -1,11 +1,15 @@
-/* RESET BASE */
+/* =======================================
+   RESET BASE
+======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Stile del menu a tendina (select) */
+/* =======================================
+   SELECTOR DI CATEGORIA (menu a tendina)
+======================================= */
 .filter-category {
     width: 10vw;
     min-width: 10rem;
@@ -24,7 +28,7 @@
     transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover con effetto più evidente */
+/* Hover e focus con effetto rilievo inverso */
 .filter-category:hover,
 .filter-category:focus {
     outline: none;

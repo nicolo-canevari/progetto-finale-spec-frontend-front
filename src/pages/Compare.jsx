@@ -130,8 +130,6 @@ export default function Compare() {
 
             <section>
 
-                <h1>Confronto Laptop</h1>
-
                 {/* Selector per aggiungere/rimuovere laptop dalla lista confronto */}
                 <CompareSelector
                     laptops={allLaptops}
@@ -152,11 +150,42 @@ export default function Compare() {
                             {/* Titolo del laptop */}
                             <h2>{laptop.title}</h2>
 
-                            {/* Icona bottone per aggiungere/rimuovere dal confronto */}
-                            <CompareIcon laptop={laptop} />
+                            {/* Contenitore immagine normale e hover */}
+                            <div className="compare-image-container">
+                                {laptop.image && laptop.imageHover ? (
+                                    <>
+                                        <img
+                                            src={laptop.image}
+                                            alt={`Immagine di ${laptop.title}`}
+                                            className="compare-image normal-image"
+                                        />
+                                        <img
+                                            src={laptop.imageHover}
+                                            alt={`Immagine hover di ${laptop.title}`}
+                                            className="compare-image hover-image"
+                                        />
+                                    </>
+                                ) : laptop.image ? (
+                                    <img
+                                        src={laptop.image}
+                                        alt={`Immagine di ${laptop.title}`}
+                                        className="compare-image"
+                                    />
+                                ) : (
+                                    <div className="no-image-placeholder">Nessuna immagine</div>
+                                )}
+                            </div>
 
-                            {/* Icona per aggiungere il prodotto ai preferiti */}
-                            <FavoriteIcon laptop={laptop} />
+                            {/* Contenitore dei bottoni */}
+                            <div className="compare-buttons">
+
+                                {/* Icona bottone per aggiungere/rimuovere dal confronto */}
+                                <CompareIcon laptop={laptop} />
+
+                                {/* Icona per aggiungere il prodotto ai preferiti */}
+                                <FavoriteIcon laptop={laptop} />
+
+                            </div>
 
                             {/* Lista delle caratteristiche tecniche */}
                             <ul>

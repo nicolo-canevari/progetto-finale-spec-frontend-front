@@ -1,48 +1,56 @@
-/* RESET BASE */
+/* =======================================
+   RESET BASE
+======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Bottone che contiene l'icona dei preferiti */
+/* =======================================
+   BOTTONE PREFERITI (icona a forma di cuore)
+======================================= */
 .favorites-icon-button {
     width: 5vw;
     height: 5vw;
-    background: #f0f0f3;
     border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.3s ease;
+    border-radius: 50%;
+    background: #f0f0f3;
+    color: #aaa;
     font-size: 1.5vw;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #aaa;
-    border-radius: 50%;
-    /* cerchio perfetto */
-    box-shadow: 0.4vw 0.4vw 0.8vw #d1d9e6,
+
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+    box-shadow:
+        0.4vw 0.4vw 0.8vw #d1d9e6,
         -0.4vw -0.4vw 0.8vw #ffffff;
 }
 
-
-/* Quando il laptop è nei preferiti */
+/* Stato attivo (aggiunto ai preferiti) */
 .favorites-icon-button.active {
     color: #e63946;
 }
 
-/* Hover per effetto elegante */
+/* Effetto al passaggio del mouse */
 .favorites-icon-button:hover {
     transform: scale(1.15);
     color: #d90429;
 }
 
-/* Rende l’icona più evidente */
+/* =======================================
+   ICONA ALL’INTERNO DEL BOTTONE
+======================================= */
 .favorites-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2vw;
 }
+
 
 /* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {

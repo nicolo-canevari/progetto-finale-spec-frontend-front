@@ -18,7 +18,7 @@ export default function SearchBar({ value, onChange }) {
             type="text"
             className="search-bar"
             placeholder="Cerca per titolo..." // Testo placeholder
-            value={value} // Valore controllato dal parent
+            value={value}  // Valore controllato dal parent
             onChange={e => onChange(e.target.value)} // Callback al parent al cambio valore
             aria-label="Barra di ricerca"
         />

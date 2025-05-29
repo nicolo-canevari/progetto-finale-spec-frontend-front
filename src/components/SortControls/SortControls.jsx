@@ -4,6 +4,7 @@
  * e di invertire l'ordine (ascendente o discendente).
  */
 
+// Icone per indicare ordine asc/desc
 import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai';
 import './SortControl.css';
 

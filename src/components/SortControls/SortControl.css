@@ -1,11 +1,15 @@
-/* RESET BASE */
+/* =======================================
+   RESET BASE
+======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Contenitore dei controlli di ordinamento */
+/* ===============================
+   Contenitore principale dei controlli di ordinamento
+================================ */
 .sort-controls-container {
     display: flex;
     align-items: center;
@@ -55,7 +59,7 @@
     transform: scale(1.1);
 }
 
-/* Media query: tablet */
+/* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .sort-controls {
         flex-direction: column;
@@ -78,7 +82,7 @@
     }
 }
 
-/* Media query: smartphone */
+/* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
     .sort-label {
         font-size: 0.95rem;

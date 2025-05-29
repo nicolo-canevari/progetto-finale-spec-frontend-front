@@ -1,17 +1,27 @@
-/* Container SearchBar e FilterCategory */
+/* =======================================
+   RESET BASE
+======================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =======================================
+   CONTAINER BAR: SearchBar + FilterCategory
+======================================= */
 .filter-bar-container {
     display: flex;
     align-items: center;
     gap: 1vw;
 }
 
-
+/* Wrapper per gli input (ricerca e filtro) */
 .search-bar-wrapper,
 .filter-category-wrapper {
     flex: 1;
     min-width: 250px;
 }
-
 
 /* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {

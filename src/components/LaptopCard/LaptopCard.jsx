@@ -20,12 +20,8 @@ export default function LaptopCard({ laptop }) {
     const imageHover = laptop.imageHover || null;
 
 
-
     // Debug in console per verificare i path delle immagini
-    console.log('laptop.image:', laptop.image);
-
-
-
+    // console.log('laptop.image:', laptop.image);
 
     return (
 

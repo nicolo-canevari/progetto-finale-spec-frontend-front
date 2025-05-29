@@ -7,9 +7,6 @@ import { createRoot } from 'react-dom/client';
 // Importa BrowserRouter da react-router-dom per abilitare il routing nell'applicazione
 import { BrowserRouter } from 'react-router-dom';
 
-// Importa lo stile globale dell'app
-import './index.css';
-
 // Importa il componente principale dell'applicazione
 import App from './App.jsx';
 
@@ -29,8 +26,11 @@ createRoot(document.getElementById('root')).render(
       {/* Avvolge tutta l'app nei context provider per gestire preferiti e confronto globalmente */}
       <FavoritesProvider>
 
+        {/* CompareProvider avvolge l'app fornendo il context per gestire
+            la lista di elementi da confrontare, accessibile da qualsiasi componente */}
         <CompareProvider>
 
+          {/* Il componente principale dell'app che contiene tutta la UI e la logica */}
           <App />
 
         </CompareProvider>

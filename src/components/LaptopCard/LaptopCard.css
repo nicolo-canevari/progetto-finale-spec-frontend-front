@@ -1,14 +1,15 @@
-/* RESET BASE */
+/* =======================================
+   RESET BASE
+======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-/* ==============================
-   Contenitore principale della scheda laptop
-   ============================== */
+/* =======================================
+   CARD LAPTOP – CONTENITORE PRINCIPALE
+======================================= */
 .laptop-card {
     width: 21vw;
     background: #e0e0e0;
@@ -24,7 +25,7 @@
     cursor: default;
 }
 
-/* Effetto hover leggero con sollevamento */
+/* Hover – Sollevamento e ombra più intensa per effetto "premuto" */
 .laptop-card:hover {
     box-shadow:
         0.5vw 0.5vw 1vw #a3a3a3,
@@ -32,7 +33,9 @@
     transform: translateY(-0.7vw);
 }
 
-/* Titolo laptop grande e leggibile */
+/* =======================================
+   TITOLO E CATEGORIA LAPTOP
+======================================= */
 .laptop-title {
     font-size: 2vw;
     font-weight: 600;
@@ -42,9 +45,17 @@
     user-select: none;
 }
 
-/* ==============================
-   Contenitore immagine con dimensioni stabili
-   ============================== */
+.laptop-category {
+    font-size: 1.4vw;
+    color: #555;
+    margin-bottom: 2vw;
+    font-style: italic;
+    user-select: none;
+}
+
+/* =======================================
+   IMMAGINE LAPTOP
+======================================= */
 .laptopcard-image-container {
     position: relative;
     width: 100%;
@@ -55,7 +66,7 @@
     background: #f0f0f0;
 }
 
-/* Immagini assolute, dimensioni e posizione fisse */
+/* Immagini – Posizionamento assoluto per centratura */
 .laptopcard-image {
     position: absolute;
     top: 50%;
@@ -70,13 +81,13 @@
     z-index: 1;
 }
 
-/* Immagine normale visibile inizialmente */
+/* Immagine normale – mostrata di default */
 .laptopcard-image.normal-image {
     opacity: 1;
     z-index: 1;
 }
 
-/* Immagine hover nascosta inizialmente */
+/* Immagine alternativa per hover – nascosta inizialmente */
 .laptopcard-image.hover-image {
     position: absolute;
     top: 50%;
@@ -87,7 +98,7 @@
     z-index: 2;
 }
 
-/* Al passaggio del mouse sul contenitore immagine, mostra l'hover */
+/* Al passaggio del mouse: switch tra immagine normale e hover */
 .laptopcard-image-container:hover .normal-image {
     opacity: 0;
 }
@@ -96,19 +107,9 @@
     opacity: 1;
 }
 
-
-/* Categoria laptop */
-.laptop-category {
-    font-size: 1.4vw;
-    color: #555;
-    margin-bottom: 2vw;
-    font-style: italic;
-    user-select: none;
-}
-
-/* ==============================
-   Contenitore delle azioni (favoriti + compare)
-   ============================== */
+/* =======================================
+   AZIONI – FAVORITI, COMPARE, DETTAGLIO
+======================================= */
 .card-actions {
     display: flex;
     justify-content: flex-start;
@@ -116,18 +117,19 @@
     margin-bottom: 1.6vw;
 }
 
-/* Bottone icona per la comparazione */
+/* Icona confronto */
 .compare-icon {
     width: 5vw;
     height: 5vw;
     font-size: 3.5vw;
 }
 
+/* Pulsante per l'ordinamento (sort) */
 .sort-order-button {
     padding: 1vw;
 }
 
-/* Link per la pagina dettaglio, stile bottone neutro */
+/* Link al dettaglio laptop – stile pulsante */
 .detail-link {
     font-size: 1.5vw;
     color: #444;
@@ -143,7 +145,7 @@
     user-select: none;
 }
 
-/* Hover sul link dettaglio con effetto neumorphism “inset” */
+/* Hover dettaglio – effetto "premuto" */
 .detail-link:hover,
 .detail-link:focus {
     background-color: #d8d8d8;

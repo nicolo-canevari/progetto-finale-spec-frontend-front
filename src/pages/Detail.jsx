@@ -1,4 +1,4 @@
-// PAGINA DEL DETTAGLIO DEL PRODOTTO SELEZIONATO
+// PAGINA DEi DETTAGLI DEL PRODOTTO SELEZIONATO
 
 import React, { useEffect, useState } from 'react';
 // useParams serve per leggere i parametri della URL

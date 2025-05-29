@@ -1,4 +1,15 @@
-/* === Container generale === */
+/* =======================================
+   RESET BASE
+======================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =======================================
+   CONTAINER GENERALE DELLA HOME
+======================================= */
 .home-container {
     max-width: 96vw;
     margin: 3vw auto;
@@ -12,14 +23,18 @@
     gap: 1vw;
 }
 
-/* Container SearchBar e FilterCategory */
+/* =======================================
+   CONTAINER DELLA BARRA DI RICERCA E FILTRI CATEGORIA
+======================================= */
 .filter-bar-container {
     display: flex;
     align-items: center;
     gap: 1vw;
 }
 
-/* === STATO DI CARICAMENTO O ERRORE === */
+/* =======================================
+   STATO DI CARICAMENTO E MESSAGGI DI ERRORE
+======================================= */
 .loading-message,
 .error-message {
     font-size: 2vw;
@@ -28,12 +43,14 @@
     margin: 3vw 0;
 }
 
-
+/* Colore rosso per il messaggio di errore */
 .error-message {
     color: #d9534f;
 }
 
-/* === GRIGLIA DI LAPTOP === */
+/* =======================================
+   GRIGLIA PER LA LISTA DEI LAPTOP
+======================================= */
 .laptops-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -44,7 +61,7 @@
     margin: 0 auto;
 }
 
-/* === MEDIA QUERY TABLET === */
+/* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .home-container {
         max-width: 86vw;
@@ -68,7 +85,7 @@
     }
 }
 
-/* === MEDIA QUERY SMARTPHONE === */
+/* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
 
     .loading-message,

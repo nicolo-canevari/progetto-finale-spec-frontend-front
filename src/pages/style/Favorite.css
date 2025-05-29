@@ -1,13 +1,15 @@
-/* style/Favorite.css */
-
-/* Reset base */
+/* =======================================
+   RESET BASE
+======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Contenitore principale */
+/* =======================================
+   CONTENITORE PRINCIPALE DELLA SEZIONE PREFERITI
+======================================= */
 .favorites-container {
     max-width: 90vw;
     margin: 3vw auto;
@@ -18,7 +20,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Titolo */
+/* =======================================
+   TITOLO DELLA SEZIONE PREFERITI
+======================================= */
 .favorites-title {
     font-size: 3vw;
     margin-bottom: 2vw;
@@ -35,7 +39,9 @@
     margin-top: 4vw;
 }
 
-/* Lista dei preferiti */
+/* =======================================
+   LISTA DEI PREFERITI
+======================================= */
 .favorites-list {
     display: flex;
     flex-wrap: wrap;
@@ -43,7 +49,7 @@
     justify-content: center;
 }
 
-/* --- Media Query Tablet --- */
+/* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .favorites-container {
         max-width: 95vw;
@@ -66,10 +72,10 @@
     }
 }
 
-/* --- Media Query Smartphone --- */
+/* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
     .favorites-container {
-        max-width: 98vw;
+        max-width: 86vw;
         margin: 1.5vw auto;
         padding: 4vw;
     }

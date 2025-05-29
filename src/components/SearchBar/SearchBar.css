@@ -1,11 +1,15 @@
-/* RESET BASE */
+/* =======================================
+   RESET GLOBALE
+   ======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Stile base per la barra di ricerca */
+/* =======================================
+   SEARCH BAR – Campo di input per la ricerca
+   ======================================= */
 .search-bar {
     width: 20vw;
     min-width: 12rem;
@@ -32,7 +36,7 @@
         inset -0.2vw -0.2vw 0.5vw #ffffff;
 }
 
-/* Media query: tablet */
+/* ========== MEDIA QUERY PER TABLET (da 769px a 1024px) ========== */
 @media (max-width: 1024px) {
     .search-bar {
         width: 60vw;
@@ -42,7 +46,7 @@
     }
 }
 
-/* Media query: smartphone */
+/* ========== MEDIA QUERY PER SMARTPHONE (fino a 768px) ========== */
 @media (max-width: 768px) {
     .search-bar {
         width: 80vw;

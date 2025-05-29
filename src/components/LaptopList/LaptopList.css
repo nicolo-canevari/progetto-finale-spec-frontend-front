@@ -5,9 +5,9 @@
     box-sizing: border-box;
 }
 
-/* ==============================
-   Contenitore principale della lista Laptop
-   ============================== */
+/* =======================================
+   CONTENITORE PRINCIPALE LISTA LAPTOP
+   ======================================= */
 .laptops-list {
     display: flex;
     grid-auto-rows: auto;
