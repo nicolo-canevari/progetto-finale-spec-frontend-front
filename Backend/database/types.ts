@@ -13,7 +13,7 @@ export type Laptop = {
     price: number;
     weight: string;
     batteryLife: string;
-    image: string;
-    imageHover: string;
+    // image: string;
+    // imageHover: string;
 
 };

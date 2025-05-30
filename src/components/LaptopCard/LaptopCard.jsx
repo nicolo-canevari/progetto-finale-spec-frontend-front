@@ -9,6 +9,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FavoritesIcon from '../FavoritesIcon/FavoritesIcon';
 import CompareIcon from '../CompareIcon/CompareIcon';
+import { FaLaptop } from 'react-icons/fa';
 import './LaptopCard.css';
 
 
@@ -58,7 +59,8 @@ export default function LaptopCard({ laptop }) {
                         className="laptopcard-image"
                     />
                 ) : (
-                    <div className="no-image-placeholder" aria-label="Nessuna immagine disponibile">
+                    <div className="no-image-placeholder">
+                        <FaLaptop className="placeholder-icon" />
                         Nessuna immagine
                     </div>
                 )}

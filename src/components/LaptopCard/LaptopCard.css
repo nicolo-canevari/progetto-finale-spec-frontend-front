@@ -114,6 +114,26 @@
     opacity: 1;
 }
 
+/* Stile per il contenitore mostrato quando manca l'immagine del laptop */
+.no-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 2vw;
+    text-align: center;
+}
+
+/* Stile per l’icona mostrata nel placeholder */
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1vw;
+    color: #999;
+}
+
 /* =======================================
    AZIONI – FAVORITI, COMPARE, DETTAGLIO
 ======================================= */
