@@ -4,7 +4,7 @@
  * e altre caratteristiche utili.
 */
 
-import React from 'react';
+import React, { useState } from 'react';
 // Import per navigazione interna tra pagine (React Router)
 import { Link } from 'react-router-dom';
 import FavoritesIcon from '../FavoritesIcon/FavoritesIcon';
@@ -16,10 +16,17 @@ import './LaptopCard.css';
 // Componente che mostra la scheda di un singolo laptop
 export default function LaptopCard({ laptop }) {
 
+    // Stato locale per tracciare se si è verificato un errore nel caricamento dell'immagine normale
+    const [imageError, setImageError] = useState(false);
+    // Stato locale per tracciare se si è verificato un errore nel caricamento dell'immagine hover
+    const [hoverError, setHoverError] = useState(false);
+
     // Costruisce i path delle immagini se definiti
     const image = laptop.image || null;
     const imageHover = laptop.imageHover || null;
 
+    // Controllo se l'immagine normale è presente e non ha dato errore durante il caricamento
+    const hasValidImages = image && !imageError;
 
     // Debug in console per verificare i path delle immagini
     // console.log('laptop.image:', laptop.image);
@@ -39,26 +46,29 @@ export default function LaptopCard({ laptop }) {
 
             {/* Immagine normale + immagine hover, se entrambe presenti */}
             <div className="laptopcard-image-container">
-                {image && imageHover ? (
+
+                {/* Se l'immagine normale è disponibile e caricata correttamente */}
+                {hasValidImages ? (
                     <>
+                        {/* Immagine normale */}
                         <img
                             src={image}
-                            alt={`Immagine normale di ${laptop.title}`}
+                            alt={`Immagine di ${laptop.title}`}
                             className="laptopcard-image normal-image"
+                            onError={() => setImageError(true)}
                         />
-                        <img
-                            src={imageHover}
-                            alt={`Immagine hover di ${laptop.title}`}
-                            className="laptopcard-image hover-image"
-                        />
+                        {/* Se l'immagine hover è definita e non ha dato errore */}
+                        {imageHover && !hoverError && (
+                            <img
+                                src={imageHover}
+                                alt={`Immagine hover di ${laptop.title}`}
+                                className="laptopcard-image hover-image"
+                                onError={() => setHoverError(true)}
+                            />
+                        )}
                     </>
-                ) : image ? (
-                    <img
-                        src={image}
-                        alt={`Immagine di ${laptop.title}`}
-                        className="laptopcard-image"
-                    />
                 ) : (
+                    // Se l'immagine normale non è disponibile o ha dato errore, mostra l'icona e il messaggio di fallback
                     <div className="no-image-placeholder">
                         <FaLaptop className="placeholder-icon" />
                         Nessuna immagine

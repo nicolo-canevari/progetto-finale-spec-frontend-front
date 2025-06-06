@@ -53,14 +53,15 @@
 .detail-image-container {
     position: relative;
     cursor: pointer;
-    width: 20vw;
-    height: auto;
+    width: 30vw;
+    height: 20vw;
     flex-shrink: 0;
 }
 
 /* Immagine normale del laptop*/
 .detail-image {
-    width: 25vw;
+    width: 27vw;
+    height: 20vw;
     border-radius: 1vw;
     object-fit: contain;
     box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.1);
@@ -72,7 +73,9 @@
 /* Immagine alternativa per l'hover */
 .hover-image {
     position: absolute;
-    object-fit: contain;
+    width: 27vw;
+    height: 20vw;
+    object-fit: cover;
     top: 0;
     left: 0;
     opacity: 0;

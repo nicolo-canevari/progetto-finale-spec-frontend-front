@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "image": "/assets/Macbook_Pro_16.jpg",
+        "imageHover": "/assets/Macbook_Pro_16_hover.jpg"
+    },
+    {
+        "id": 2,
+        "image": "/assets/Dell_XPS_15.jpg",
+        "imageHover": "/assets/Dell_XPS_15_hover.jpg"
+    },
+    {
+        "id": 3,
+        "image": "/assets/HP_Spectre_x360_14.jpg",
+        "imageHover": "/assets/HP_Spectre_x360_14_hover.jpg"
+    },
+    {
+        "id": 4,
+        "image": "/assets/Lenovo_Yoga_9i.jpg",
+        "imageHover": "/assets/Lenovo_Yoga_9i_hover.jpg"
+    },
+    {
+        "id": 5,
+        "image": "/assets/Asus_ROG_Zephyrus_G14.jpg",
+        "imageHover": "/assets/Asus_ROG_Zephyrus_G14_hover.jpg"
+    },
+    {
+        "id": 6,
+        "image": "/assets/Razer_Blade_16.jpg",
+        "imageHover": "/assets/Razer_Blade_16_hover.jpg"
+    },
+    {
+        "id": 7,
+        "image": "/assets/Acer_Swift_Go_14.jpg",
+        "imageHover": "/assets/Acer_Swift_Go_14_hover.jpg"
+    },
+    {
+        "id": 8,
+        "image": "/assets/Microsoft_Surface_Laptop_5.jpg",
+        "imageHover": "/assets/Microsoft_Surface_Laptop_5_hover.jpg"
+    },
+    {
+        "id": 9,
+        "image": "/assets/LG_Gram_17.jpg",
+        "imageHover": "/assets/LG_Gram_17_hover.jpg"
+    },
+    {
+        "id": 10,
+        "image": "/assets/Framework_Laptop_13.jpg",
+        "imageHover": "/assets/Framework_Laptop_13_hover.jpg"
+    }
+]

@@ -43,12 +43,18 @@ export function FavoritesProvider({ children }) {
     // Funzione per aggiungere un laptop ai preferiti (se non è già presente)
     const addFavorite = (laptop) => {
 
+        const completeLaptop = {
+            ...laptop,
+            image: laptop.image?.startsWith('http') ? laptop.image : `${window.location.origin}/${laptop.image}`,
+            imageHover: laptop.imageHover?.startsWith('http') ? laptop.imageHover : `${window.location.origin}/${laptop.imageHover}`,
+        };
+
         setFavorites((prev) => {
 
             // Controlla se il laptop è già presente nella lista per evitare duplicati
             if (prev.some(item => item.id === laptop.id)) return prev;
             // Se non è presente lo aggiunge creando un nuovo array
-            return [...prev, laptop];
+            return [...prev, completeLaptop];
 
         });
 
